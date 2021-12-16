@@ -11,21 +11,11 @@ def guess_birthday(month,d,t):
       if(d=='odd' and t=='before'): l=[1, 3, 5, 7, 9, 11, 13, 15]
       elif(d=='even' and t=='after'): l=[18, 20, 22, 24, 26, 28, 30]
       elif(d=='even' and t=='before'): l=[2, 4, 6, 8, 10, 12, 14, 16]
-
-
-      
-
       
       o = (print("Is your birthday "+month+" ", (random.choice(l)), "?"))
       while input(o.lower()) != "Yes":
           print("Is your birthday "+month+" ", (random.choice(l)), "?")
 
-'''def daywith31():
-d = input("Is your birth date odd or even? ")
-if d == 'odd':
-print
-print (random.randint(odda16w31))
-'''
 print ("Hello! Welcome to the 'Guess My Birthday' game!")
 sea = input("Please start by answering this question: Which season is your birthday in? ")
 
