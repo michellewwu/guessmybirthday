@@ -1,5 +1,6 @@
 import math
 import random
+
 def guess_birthday(month,d,t):
       l=[]
       if month=="December" or month=="January" or month=="March" or month=="May" or month=="July" or month=="August" or month=="October": 
@@ -10,6 +11,7 @@ def guess_birthday(month,d,t):
       if(d=='odd' and t=='before'): l=[1, 3, 5, 7, 9, 11, 13, 15]
       elif(d=='even' and t=='after'): l=[18, 20, 22, 24, 26, 28, 30]
       elif(d=='even' and t=='before'): l=[2, 4, 6, 8, 10, 12, 14, 16]
+
 
       
 
