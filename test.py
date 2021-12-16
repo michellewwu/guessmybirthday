@@ -1,3 +1,1 @@
-import math
-import random
-import os
+print("I figured it out, Michelle!")
