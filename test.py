@@ -1,4 +1,6 @@
-'''
+''' #i took this out first to finish my code, but i like the way you did the functions. 
+    this is the basic idea, but i wasn't sure how to continue with the functions, so I did it in a very not efficient way lol
+    could you fix it please? thank you:)
 import math
 import random
 
