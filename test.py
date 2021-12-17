@@ -1,3 +1,4 @@
+
 import random
 
 def guess_birthday(month,d,t):
@@ -10,6 +11,7 @@ def guess_birthday(month,d,t):
       if(d=='odd' and t=='before'): l=[1, 3, 5, 7, 9, 11, 13, 15]
       elif(d=='even' and t=='after'): l=[18, 20, 22, 24, 26, 28, 30]
       elif(d=='even' and t=='before'): l=[2, 4, 6, 8, 10, 12, 14, 16]
+
       
       day=str((random.choice(l)))
       m = input("Is your birthday "+month+" "+day+"? (yes/no)")
@@ -65,3 +67,58 @@ def main():
   print("I guessed it! Your Birthday is" + " "+m +" "+ day )
      
 main()
+=======
+
+      o = (print("Is your birthday "+month+" ", (random.choice(l)), "?"))
+      while input(o.lower()) != "Yes":
+          print("Is your birthday "+month+" ", (random.choice(l)), "?")
+
+def main():
+  sea = input("Please start by answering this question: Which season is your birthday in?")
+  month = ''
+  d = ''
+  t = ''
+  if sea.lower() == 'winter':
+    w = input("Is your birthday in the same month as Christmas, New Years, or Valentine's Day?")
+    d = input("Is your birth date odd or even? ")
+    if d=='odd':
+      t = input("Is your birth date before or after the 16th? ")
+    elif d=='even':
+      t = input("Is your birth date before or after the 17th? ")
+    if w.lower() == 'christmas':
+      month='December'
+    elif  =='new years':
+      month='January'
+    elif == 'valentine':
+      month='February'
+  elif:
+    w = input("Is your birthday in the same month as Christmas, New Years, or Valentine's Day?")
+    d = input("Is your birth date odd or even? ")
+    t = input("Is your birth date before or after the 16th? ")
+    if w.lower() == 'christmas':
+      month=''
+    elif  =='new years':
+      month='January'
+    elif == 'valentine':
+      month='February'
+  elif sea.lower() =='spring':
+    w = input("Is your birthday in the same month as a, b, or c?")
+    d = input("is your birth date odd or even?")
+    if d=='odd':
+      t = input("Is your birth date before or after the 16th? ")
+    elif d=='even':
+      t = input("Is your birth date before or after the 17th? ")
+    if w.lower()='a':
+      month = 'March'
+    elif  =='b':
+      month='April'
+    elif == 'c':
+      month='May'
+  elif:
+    pass
+
+  guess_birthday(month,d,t)
+     
+
+ main()
+ 
