@@ -1,7 +1,4 @@
-''' #i took this out first to finish my code, but i like the way you did the functions. 
-    this is the basic idea, but i wasn't sure how to continue with the functions, so I did it in a very not efficient way lol
-    could you fix it please? thank you:)
-import math
+
 import random
 
 def guess_birthday(month,d,t):
@@ -14,6 +11,63 @@ def guess_birthday(month,d,t):
       if(d=='odd' and t=='before'): l=[1, 3, 5, 7, 9, 11, 13, 15]
       elif(d=='even' and t=='after'): l=[18, 20, 22, 24, 26, 28, 30]
       elif(d=='even' and t=='before'): l=[2, 4, 6, 8, 10, 12, 14, 16]
+
+      
+      day=str((random.choice(l)))
+      m = input("Is your birthday "+month+" "+day+"? (yes/no)")
+      while m.lower() == 'no':
+        day=str((random.choice(l)))
+        m = input("Is your birthday "+month+" " +day+ "?(yes/no)")
+        if m.lower() == 'yes':
+          return month,day
+      return month,day
+
+def main():
+  sea = input("Please start by answering this question: Which season is your birthday in?")
+  print()
+  if sea.lower() == 'winter':
+    w = input("Is your birthday in the same month as Christmas, New Years, or Valentine's Day?")
+    if w.lower() == 'christmas':
+      month='December'
+    elif w.lower() =='new years':
+      month='January'
+    elif w.lower() == "valentine's day":
+      month='February'
+  elif sea.lower() == 'fall':
+    w = input("Is your birthday in the same month as Labor Day, Halloween, or Thanksgiving?")
+    if w.lower() == 'labor Day':
+      month='September'
+    elif w.lower() =='halloween':
+      month='October'
+    elif w.lower() == 'thanksgiving':
+      month='November'
+  elif sea.lower() =='spring':
+    w = input("Is your birthday in the same month as St. Patricks, Easter, or Mother's day?")
+    if w.lower() =='st. patricks':
+      month = 'March'
+    elif w.lower() =='easter':
+      month='April'
+    elif w.lower() == "mother's day":
+      month='May'
+  elif sea.lower() == 'summer':
+    w = input("Is your birthday in the same month as Father's day, Fourth of July, or National Watermelon Day?")
+    if w.lower() =="father's day":
+      month = 'June'
+    elif w.lower() =='fourth of july':
+      month='July'
+    elif w.lower() == "national watermelon day":
+      month='August'
+  
+  d = input("Is your birth date odd or even? (odd/even)")
+  if d=='odd':
+    t = input("Is your birth date before or after the 16th? (before/after)")
+  elif d=='even':
+    t = input("Is your birth date before or after the 17th? (before/after)")
+  m,day=guess_birthday(month,d,t)
+  print("I guessed it! Your Birthday is" + " "+m +" "+ day )
+     
+main()
+=======
 
       o = (print("Is your birthday "+month+" ", (random.choice(l)), "?"))
       while input(o.lower()) != "Yes":
@@ -67,343 +121,4 @@ def main():
      
 
  main()
- '''
- import math
-import random
-
-oddb16 = [1, 3, 5, 7, 9, 11, 13, 15]
-odda16 = [17, 19, 21, 23, 25, 27, 29, 31]
-evenb15 = [2, 4, 6, 8, 10, 12, 14]
-evena15 = [16, 18, 20, 22, 24, 26, 28, 30]
-
-print ("Hello! Welcome to the 'Guess My Birthday' game!")
-
-sea = input("Please start by answering this question: Which season is your birthday in? ")
-
-#FALL
-
-if sea.lower() == 'fall':
-    f = input("Is your birthday in the same month as Labor Day, Halloween, or Thanksgiving? ")
-    if f.lower() == 'labor day':  #laborday
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':     #odd
-            w = input("Is your birth date before or after the 16th? ")  
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday September", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday September", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday September", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday September", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':   #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday September", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday September", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday September", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday September", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-                    
-    elif f.lower() == 'halloween':  #halloween
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':        #odd
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday October", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday October", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before': #before
-                o = (print("Is your birthday October", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday October", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday October", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday October", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before': #before
-                o = (print("Is your birthday October", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday October", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-    else:                            #thanksgiving
-        d = input("Is your birth date odd or even? ")   
-        if d.lower() == 'odd':
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday November", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday November", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday November", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday November", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday November", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday November", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday November", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday November", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-
-#SPRING
-
-if sea.lower() == 'spring':
-    f = input("Is your birthday in the same month as St.Patricks Day, Easter, or Mother's Day? ")
-    if f.lower() == "st.patrick's day" or f.lower() == "st.patricks day":  #stpatricks day
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':     #odd
-            w = input("Is your birth date before or after the 16th? ")  
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday March", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday March", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday March", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday March", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':   #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday March", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday March", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday March", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday March", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-                    
-    elif f.lower() == 'easter':  #easter
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':        #odd
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday April", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday April", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before': #before
-                o = (print("Is your birthday April", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday April", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday April", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday April", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before': #before
-                o = (print("Is your birthday April", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday April", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-    else:                            #mother's day
-        d = input("Is your birth date odd or even? ")   
-        if d.lower() == 'odd':
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday May", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday May", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday May", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday May", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday May", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday May", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday May", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday May", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-
-#SUMMER
-                    
-elif sea.lower() == 'summer':
-    f = input("Is your birthday in the same month as Father's Day, Fourth of July, or National Watermelon Day? ")
-    if f.lower() == "fathers day" or f.lower() == "father's day":  #fathersday
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':     #odd
-            w = input("Is your birth date before or after the 16th? ")  
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday June", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday June", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday June", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday June", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':   #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday June", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday June", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday June", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday June", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-                    
-    elif f.lower() == 'fourth of july':  #fourthofjuly
-        d = input("Is your birth date odd or even? ")
-        if d.lower() == 'odd':        #odd
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday July", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday July", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before': #before
-                o = (print("Is your birthday July", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday July", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday July", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday July", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before': #before
-                o = (print("Is your birthday July", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday July", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-    else:                            #national watermelon day
-        d = input("Is your birth date odd or even? ")   
-        if d.lower() == 'odd':
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 16th' or w.lower() == 'after':
-                o = (print("Is your birthday August", (random.choice(odda16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday August", (random.choice(odda16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 16th' or w.lower() == 'before':
-                o = (print("Is your birthday August", (random.choice(oddb16)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday August", (random.choice(oddb16)), "?")
-                    if n.lower() == 'yes':
-                        break;
-        elif d.lower() == 'even':    #even
-            w = input("Is your birth date before or after the 16th? ")
-            if w.lower() == 'after the 15th' or w.lower() == 'after':
-                o = (print("Is your birthday August", (random.choice(evena15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday August", (random.choice(evena15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-            elif w.lower() == 'before the 15th' or w.lower() == 'before':
-                o = (print("Is your birthday August", (random.choice(evenb15)), "?"))
-                m = input(o)
-                while m == 'no':
-                    n = print("Is your birthday August", (random.choice(evenb15)), "?")
-                    if n.lower() == 'yes':
-                        break;
-else:
-    w = input("Is your birthday in the same month as Christmas, New Years, or Valentine's Day?")
-
-    #not done
+ 
